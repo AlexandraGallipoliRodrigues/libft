@@ -1,13 +1,10 @@
-#include <string.h>
-#include <stdio.h>
-#include <unistd.h>
-void	*ft_memset(void *b,int c, size_t len);
+#include "libft.h"
 void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char a[] = "hkanslnsajnksajbskajbsakola";
 //	int b[] = {1, 2, 3, 4, 5};
@@ -24,4 +21,4 @@ int	main(void)
 		i++;
 	}
 	return (0);
-}
+}*/

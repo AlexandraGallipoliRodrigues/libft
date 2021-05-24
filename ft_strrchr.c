@@ -1,5 +1,4 @@
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
 char *ft_strrchr (const char *str, int c)
 {

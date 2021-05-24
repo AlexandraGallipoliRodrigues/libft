@@ -1,9 +1,8 @@
-#include <string.h>
-#include <stdio.h>
-//#include "libft.h"
+#include "libft.h"
+
 void	*ft_memset(void *b,int c, size_t len)
 {
-	int				i;
+	size_t				i;
 
 	i = 0;
 	while (i < len)
