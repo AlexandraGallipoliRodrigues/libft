@@ -25,7 +25,7 @@ void	*ft_memcpy(void	*dest, const void *src, size_t n)
 	return (dest);
 }
 
-int main(void)
+/*int main(void)
 {
 	char src[] = "holaa";
 	char dest[] = "adioos";
@@ -33,4 +33,4 @@ int main(void)
 	printf("%s\n", ft_memcpy(dest, src, 8));
 	printf("%s", memcpy(dest, src, 8));
 	return (0);
-}
+}*/
