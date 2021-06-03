@@ -6,7 +6,7 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 18:01:41 by agallipo          #+#    #+#             */
-/*   Updated: 2021/05/20 18:57:25 by agallipo         ###   ########.fr       */
+/*   Updated: 2021/06/02 22:16:29 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	*ft_memcpy(void	*dest, const void *src, size_t n)
 {
 	size_t	i;
-	
+
 	i = 0;
-	while (i < n  && (((unsigned char *)src)[i]))
+	while (i < n && (((unsigned char *)src)[i]))
 	{
 		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
 		i++;

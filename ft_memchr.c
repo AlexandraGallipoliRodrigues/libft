@@ -6,7 +6,7 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 13:52:41 by agallipo          #+#    #+#             */
-/*   Updated: 2021/05/21 14:47:57 by agallipo         ###   ########.fr       */
+/*   Updated: 2021/06/02 22:14:24 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,5 @@ void	*ft_memchr(const void *s, int	c, size_t n)
 	}
 	if (n == 0)
 		return (0);
-	return (0);
-}
-
-int main (void)
-{
-	char str[] = "hlaalaa";
-	printf("%s\n", ft_memchr(str, 'l', 2));
-	printf("%s", memchr(str, 'l', 2));
 	return (0);
 }

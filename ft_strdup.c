@@ -1,8 +1,6 @@
 #include "libft.h"
-#include <string.h>
-#include <stdio.h> 
 
-char *ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	char	*ptr;
 	int		size;
@@ -21,14 +19,3 @@ char *ft_strdup(const char *s1)
 	ptr[i] = '\0';
 	return (ptr);
 }
-
-int	main(void)
-{
-	char s[4] = "hlaa";
-	ft_strdup(s);
-
-	printf("%s", s);
-	return (0);
-}
-
-

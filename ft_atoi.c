@@ -26,14 +26,3 @@ int	ft_atoi(const char *str)
 	}
 	return (num * val);
 }
-
-int main (void)
-{
-	char	test[]= "  \t+56-4asdf68286  -+--  ";
-	int a = ft_atoi(test);
-    int b = atoi(test);
-
-	printf("%i\n", a);
-    printf("%i", b);
-	return (0);
-}

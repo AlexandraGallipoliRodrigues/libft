@@ -6,7 +6,7 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 19:01:29 by agallipo          #+#    #+#             */
-/*   Updated: 2021/05/20 21:25:47 by agallipo         ###   ########.fr       */
+/*   Updated: 2021/06/02 22:13:40 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,4 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 		i++;
 	}
 	return (dest);
-}
-
-int main(void)
-{
-	char src[] = "holaa";
-	char dest[] = "pepe";
-
-	memccpy(dest, src, 'a', 4);
-	printf("%s", dest);
-	 char src1[] = "holaa";
-	 char dest1[] = "pepe";
-	ft_memccpy(dest1, src1, 'a', 4);
-	printf("%s", dest1);
-	return (0);
- 
 }

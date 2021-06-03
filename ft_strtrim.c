@@ -6,14 +6,13 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 12:57:11 by agallipo          #+#    #+#             */
-/*   Updated: 2021/05/25 14:01:37 by agallipo         ###   ########.fr       */
+/*   Updated: 2021/06/02 22:59:45 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_containchar(char *str, char c)
+static int	ft_containchar(char *str, char c)
 {
 	while (*str)
 	{
@@ -46,10 +45,4 @@ char	*ft_strtrim(char *s1, char *set)
 	}
 	s1_len = (last_char + 1) - first_char;
 	return (ft_substr(s1, first_char, s1_len));
-}
-
-int	main(void)
-{
-	printf("%s\n", ft_strtrim("aslahellosal", "sal"));
-	return (0);
 }
