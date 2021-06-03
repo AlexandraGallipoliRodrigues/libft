@@ -23,6 +23,7 @@ static char	*ft_putWord(char const *s, int i, char c)
 	int		j;
 	char	*str;
 
+	j = 0;
 	while (s[j] != c && s[j])
 		j++;
 	str = (char *)malloc((1 + j) * sizeof(char));

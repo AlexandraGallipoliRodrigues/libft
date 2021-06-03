@@ -6,21 +6,13 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 10:19:30 by agallipo          #+#    #+#             */
-/*   Updated: 2021/06/02 22:46:50 by agallipo         ###   ########.fr       */
+/*   Updated: 2021/06/03 20:03:28 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_strlen(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+size_t	ft_strlen(char *str);
 
 size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
 {
