@@ -2,7 +2,7 @@
 
 size_t	ft_strlen(char *str);
 
-size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
+size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 {
 	size_t	ts;
 	size_t	td;

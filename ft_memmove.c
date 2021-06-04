@@ -6,7 +6,7 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 21:35:14 by agallipo          #+#    #+#             */
-/*   Updated: 2021/06/02 22:23:48 by agallipo         ###   ########.fr       */
+/*   Updated: 2021/06/04 13:10:17 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,14 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 	aux_dest = ((unsigned char *)dest);
 	aux_src = ((unsigned char *)src);
 	i = 0;
-	while (i < len)
+	if (aux_dest > aux_src)
 	{
-		aux_dest[i] = aux_src[i];
-		i++;
+		while (len-- != 0)
+		{
+			aux_dest[len] = aux_src[len];
+		}
 	}
-	return (dest);
+	else
+		ft_memcpy(aux_dest, aux_src, len);
+	return (aux_dest);
 }
