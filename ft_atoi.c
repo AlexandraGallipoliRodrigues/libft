@@ -2,27 +2,28 @@
 
 int	ft_atoi(const char *str)
 {
-	int	val;
-	int	num;
-	int	i;
+	long	val;
+	long	num;
+	long	i;
 
 	i = 0;
 	num = 0;
 	val = 1;
-	while (str[i] == ' ' || (str[i] >= 0 && str[i] <= 13))
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			val *= -1;
+			val = -1;
 		i++;
-		if (str[i] == '-' || str[i] == '+')
-			return (0);
 	}
-	while (str[i] >= 48 || str[i] >= 57)
+	while (str[i] && (str[i] >= 48 && str[i] <= 57))
 	{
-		num = num * 10 + (str[i] - '0');
-		i++;
+		num = num * 10 + (str[i++] - '0');
+		if ((num * val) > 2147483647)
+			return (-1);
+		if ((num * val) < -2147483648)
+			return (0);
 	}
 	return (num * val);
 }

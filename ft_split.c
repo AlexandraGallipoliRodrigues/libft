@@ -7,6 +7,8 @@ static int	ft_countWords(char const *s, char c)
 
 	i = 0;
 	w = 0;
+	if (!s)
+		return (0);
 	if (s[0] != c)
 		w++;
 	while (s[i] != '\0')
@@ -27,6 +29,8 @@ static char	*ft_putWord(char const *s, int i, char c)
 	while (s[j] != c && s[j])
 		j++;
 	str = (char *)malloc((1 + j) * sizeof(char));
+	if (!str)
+		return (NULL);
 	j = 0;
 	while (s[i] != c && s[i])
 	{
@@ -48,7 +52,11 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	words = ft_countWords(s, c);
+	if (!s)
+		return (NULL);
 	strsplit = (char **)malloc((words + 1) * sizeof(char *));
+	if (!strsplit)
+		return (NULL);
 	while (j < words && s[i])
 	{
 		while (s[i] == c && s[i])
@@ -61,3 +69,21 @@ char	**ft_split(char const *s, char c)
 	strsplit[j] = NULL;
 	return (strsplit);
 }
+
+/*void	ft_try(char *str, char charset)
+{
+	char	**tab;
+	int		i;
+	tab = ft_split(str, charset);
+	i = 0;
+	while (tab[i])
+	{
+		printf("%s\n", tab[i]);
+		i++;
+	}
+}
+int	main(void)
+{
+	 ft_try("split  ||this|for|me|||||!|", '|');
+	 return (0);
+}*/
