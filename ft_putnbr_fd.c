@@ -3,21 +3,24 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == -2147483648)
+	long	nbr;
+
+	nbr = n;
+	if (nbr == -2147483648)
 		write(fd, "-2147483648", 11);
-	if (n != -2147483648)
+	if (nbr != -2147483648)
 	{
-		if (n < 0)
+		if (nbr < 0)
 		{
-			ft_putchar_fd((char)"-", fd);
-			n = -n;
+			ft_putchar_fd('-', fd);
+			nbr = -nbr;
 		}
-		if (n >= 10)
+		if (nbr >= 10)
 		{
-			ft_putnbr_fd(n / 10, fd);
-			ft_putnbr_fd(n % 10, fd);
+			ft_putnbr_fd(nbr / 10, fd);
+			ft_putnbr_fd(nbr % 10, fd);
 		}
 		else
-			ft_putchar_fd(n + '0', fd);
+			ft_putchar_fd(nbr + '0', fd);
 	}
 }

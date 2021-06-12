@@ -11,12 +11,14 @@ static int	ft_countWords(char const *s, char c)
 		return (0);
 	if (s[0] != c)
 		w++;
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		if ((s[i] == c && s[i + 1] != c) || s[i + 1] == '\0')
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
 			w++;
 		i++;
 	}
+	if (w == 0)
+		return (1);
 	return (w);
 }
 
@@ -39,6 +41,8 @@ static char	*ft_putWord(char const *s, int i, char c)
 		j++;
 	}
 	str[j] = '\0';
+	while (s[i] == c && s[i])
+		i++;
 	return (str);
 }
 

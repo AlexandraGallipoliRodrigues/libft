@@ -6,7 +6,7 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:45:06 by agallipo          #+#    #+#             */
-/*   Updated: 2021/06/09 16:59:51 by agallipo         ###   ########.fr       */
+/*   Updated: 2021/06/10 17:46:18 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static char	*ft_check_error(int n, char *number)
 	if (n < 0)
 	{
 		number[0] = '-';
-		n *= -1;
 	}
 	if (n == 0)
 		number[0] = '0';
@@ -52,9 +51,11 @@ char	*ft_itoa(int n)
 	if (!number)
 		return (NULL);
 	if (n == -2147483648)
-		return ("-2147483648");
+		return (ft_strdup("-2147483648"));
 	number[digit] = '\0';
 	number = ft_check_error(n, number);
+	if (n < 0)
+		n *= -1;
 	while (digit > 0)
 	{
 		digit--;
