@@ -22,29 +22,50 @@ static int	ft_countWords(char const *s, char c)
 	return (w);
 }
 
-static char	*ft_putWord(char const *s, int i, char c)
+static char	*ft_putWord(char const *s, int *i, char c)
 {
 	int		j;
 	char	*str;
+	int		l;
 
+	l = ft_strlen(s);
 	j = 0;
 	while (s[j] != c && s[j])
 		j++;
-	str = (char *)malloc((1 + j) * sizeof(char));
+	str = (char *)malloc((1 + l) * sizeof(char));
 	if (!str)
 		return (NULL);
 	j = 0;
-	while (s[i] != c && s[i])
+	while (s[*i] != c && s[*i])
 	{
-		str[j] = s[i];
-		i += 1;
-		j++;
+		str[j++] = s[*i];
+		*i += 1;
 	}
 	str[j] = '\0';
-	while (s[i] == c && s[i])
-		i++;
+	while (s[*i] == c && s[*i])
+		*i += 1;
 	return (str);
 }
+/*static	char	*ft_putWord(const char *s, char c, int *i)
+{
+	char	*str;
+	int		k;
+
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!str)
+		return (NULL);
+	k = 0;
+	while (s[*i] != c && s[*i])
+	{
+		str[k] = s[*i];
+		k++;
+		*i += 1;
+	}
+	str[k] = '\0';
+	while (s[*i] == c && s[*i])
+		*i += 1;
+	return (str);
+}*/
 
 char	**ft_split(char const *s, char c)
 {
@@ -61,14 +82,12 @@ char	**ft_split(char const *s, char c)
 	strsplit = (char **)malloc((words + 1) * sizeof(char *));
 	if (!strsplit)
 		return (NULL);
+	while (s[i] == c && s[i])
+		i++;
 	while (j < words && s[i])
 	{
-		while (s[i] == c && s[i])
-			i++;
-		strsplit[j] = ft_putWord(s, i, c);
-		while (s[i] != c && s[i])
-			i++;
-		j++;
+		strsplit[j] = ft_putWord(s, &i, c);
+			j++;
 	}
 	strsplit[j] = NULL;
 	return (strsplit);

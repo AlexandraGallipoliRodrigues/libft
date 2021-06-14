@@ -18,20 +18,52 @@ size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
 	size_t	ts;
 	size_t	td;
 
-	ts = ft_strlen ((char *)src);
+	ts = ft_strlen(src);
 	td = ft_strlen(dest);
 	i = 0;
-	if (!src)
-		return (destsize);
-	while (src[i] != 0 && (td + i + 1) < destsize)
+	if (destsize < (td + 1))
+		return (destsize + ts);
+	if (destsize > (td + 1))
 	{
-		if ((td + i + 1) < destsize)
-			(dest[td + i] = src[i]);
-		i++;
+		while (src[i] != '\0' && (td + i + 1) < destsize)
+		{
+			dest[td + i] = src[i];
+			i++;
+		}
 	}
-	dest[td + i] = 0;
-	if (destsize < td)
-		return (ts + destsize);
-	else
-		return (ts + td);
+	dest[td + i] = '\0';
+	return (ts + td);
 }
+/*
+size_t		ft_strlcat(char *dest, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	dest_len;
+	size_t	src_len;
+
+	dest_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
+	i = 0;
+	if (dstsize < dest_len + 1)
+		return (dstsize + src_len);
+	if (dstsize > dest_len + 1)
+	{
+		while (src[i] != '\0' && dest_len + 1 + i < dstsize)
+		{
+			dest[dest_len + i] = src[i];
+			i++;
+		}
+	}
+	dest[dest_len + i] = '\0';
+	return (dest_len + src_len);
+}*/
+
+/*int main(void)
+{
+		char *dest;
+		memset(dest, 'r', 14);
+		printf("%i", ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	return(0);
+}*/
