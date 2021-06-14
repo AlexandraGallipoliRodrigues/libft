@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
@@ -9,29 +8,20 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	size_t	i;
 	size_t	j;
 
-	lens1 = ft_strlen((char *)s1);
-	lens2 = ft_strlen((char *)s2);
-	ptr = malloc(lens1 + lens2);
-	
+	if (!s1 || !s2)
+		return (NULL);
+	lens1 = ft_strlen(s1);
+	lens2 = ft_strlen(s2);
+	ptr = malloc(lens1 + lens2 + 1);
+	if (!ptr)
+		return (NULL);
 	i = 0;
+	j = 0;
 	while (s1[i])
-	{
-		ptr[i] = s1[i];
-		i++;
-	}
+		ptr[i++] = s1[j++];
 	j = 0;
 	while (s2[j])
-	{
-		ptr[i + j] = s2[j];
-		j++;
-	}
+		ptr[i++] = s2[j++];
+	ptr[i] = '\0';
 	return (ptr);
-}
-
-int	main(void)
-{
-	char	s1[] = "hola";
-	char	s2[] = "quetal";
-	printf("%s", ft_strjoin(s1, s2));
-	return (0);
 }

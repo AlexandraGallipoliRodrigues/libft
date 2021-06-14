@@ -6,14 +6,13 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 12:57:11 by agallipo          #+#    #+#             */
-/*   Updated: 2021/05/25 14:01:37 by agallipo         ###   ########.fr       */
+/*   Updated: 2021/06/10 17:22:52 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_containchar(char *str, char c)
+static int	ft_containchar(char *str, char c)
 {
 	while (*str)
 	{
@@ -25,31 +24,26 @@ int	ft_containchar(char *str, char c)
 
 char	*ft_strtrim(char *s1, char *set)
 {
-	int	first_char;
-	int	last_char;
 	int	i;
-	int	s1_len;
 
-	first_char = -1;
-	last_char = -1;
-	i = 0;
-	while (s1[i] != '\0')
+	if (!s1 || !set)
+		return (NULL);
+	if (*s1 == 0)
+		return (ft_strdup(""));
+	while (*s1)
 	{
-		if (!ft_containchar(set, s1[i]))
-		{
-			if (first_char == -1)
-				first_char = i;
-			if (first_char != -1)
-				last_char = i;
-		}
-		i++;
+		if (ft_containchar(set, *s1) == 1)
+			s1++;
+		else
+			break ;
 	}
-	s1_len = (last_char + 1) - first_char;
-	return (ft_substr(s1, first_char, s1_len));
-}
-
-int	main(void)
-{
-	printf("%s\n", ft_strtrim("aslahellosal", "sal"));
-	return (0);
+	i = ft_strlen(s1);
+	while (i > 0)
+	{
+		if (ft_containchar(set, *(s1 + i - 1)) == 1)
+			i--;
+		else
+			break ;
+	}
+	return (ft_substr(s1, 0, i));
 }

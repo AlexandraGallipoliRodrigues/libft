@@ -1,14 +1,12 @@
 #include "libft.h"
-#include <string.h>
-#include <stdio.h> 
 
-char *ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	char	*ptr;
 	int		size;
 	int		i;
 
-	size = strlen(s1);
+	size = ft_strlen(s1);
 	ptr = (char *)malloc(size + 1);
 	i = 0;
 	if (!ptr)
@@ -21,14 +19,3 @@ char *ft_strdup(const char *s1)
 	ptr[i] = '\0';
 	return (ptr);
 }
-
-int	main(void)
-{
-	char s[4] = "hlaa";
-	ft_strdup(s);
-
-	printf("%s", s);
-	return (0);
-}
-
-
