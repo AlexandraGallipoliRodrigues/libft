@@ -8,6 +8,7 @@ size_t	ft_strlen2(const char *str, char c, size_t i)
 		i++;
 	return (i - init);
 }
+
 static int	ft_countWords(char const *s, char c)
 {
 	int	i;
@@ -32,14 +33,12 @@ static int	ft_countWords(char const *s, char c)
 
 static char	*ft_putWord(char const *s, int *i, char c)
 {
-	int	j;
+	int		j;
 	char	*str;
-	int	l;
+	int		l;
 
 	l = ft_strlen2(s, c, *i);
 	j = 0;
-//	while (s[j] != c && s[j])
-//		j++;
 	str = (char *)malloc((1 + l) * sizeof(char));
 	if (!str)
 		return (NULL);
@@ -57,9 +56,9 @@ static char	*ft_putWord(char const *s, int *i, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	int	i;
-	int	j;
-	int	words;
+	int		i;
+	int		j;
+	int		words;
 	char	**strsplit;
 
 	i = 0;
@@ -75,26 +74,8 @@ char	**ft_split(char const *s, char c)
 	while (j < words && s[i])
 	{
 		strsplit[j] = ft_putWord(s, &i, c);
-			j++;
+		j++;
 	}
 	strsplit[j] = NULL;
 	return (strsplit);
 }
-
-/*void	ft_try(char *str, char charset)
-{
-	char	**tab;
-	int		i;
-	tab = ft_split(str, charset);
-	i = 0;
-	while (tab[i])
-	{
-		printf("%s\n", tab[i]);
-		i++;
-	}
-}
-int	main(void)
-{
-	 ft_try("split  ||this|for|me|||||!|", '|');
-	 return (0);
-}*/
