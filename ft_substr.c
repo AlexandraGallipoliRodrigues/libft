@@ -6,7 +6,7 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 20:05:39 by agallipo          #+#    #+#             */
-/*   Updated: 2021/06/16 21:35:42 by agallipo         ###   ########.fr       */
+/*   Updated: 2021/06/17 12:05:14 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*ptr;
 	unsigned int	i;
-	
+
 	i = 0;
 	if (!s)
 		return (NULL);

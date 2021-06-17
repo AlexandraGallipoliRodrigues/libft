@@ -35,7 +35,7 @@ SRCS	=	ft_atoi.c \
 
 OBJS	= ${SRCS:.c=.o}
 NAME	= libft.a
-CC		= gcc
+CC		= cc
 RM		= rm -f
 FLAGS	= -Wall -Wextra -Werror
 %.o:	%.c

@@ -6,7 +6,7 @@
 /*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:45:06 by agallipo          #+#    #+#             */
-/*   Updated: 2021/06/10 17:46:18 by agallipo         ###   ########.fr       */
+/*   Updated: 2021/06/17 12:14:08 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ char	*ft_itoa(int n)
 	int		digit;
 
 	digit = ft_num_of_digit(n);
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	number = (char *)malloc((digit + 1) * sizeof(char));
 	if (!number)
 		return (NULL);
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	number[digit] = '\0';
 	number = ft_check_error(n, number);
 	if (n < 0)
