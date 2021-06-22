@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/21 13:35:11 by agallipo          #+#    #+#             */
+/*   Updated: 2021/06/21 13:49:47 by agallipo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-size_t	ft_strlen2(const char *str, char c, size_t i)
+static size_t	ft_strlen2(const char *str, char c, size_t i)
 {
 	int	init;
 

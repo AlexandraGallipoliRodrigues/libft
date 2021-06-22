@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/06/21 13:59:32 by agallipo          #+#    #+#              #
+#    Updated: 2021/06/21 17:15:45 by agallipo         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRCS	=	ft_atoi.c \
 			ft_bzero.c \
 			ft_calloc.c \
@@ -33,20 +45,31 @@ SRCS	=	ft_atoi.c \
 			ft_toupper.c \
 			ft_strnstr.c \
 
+BONUS =		ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c
+
 OBJS	= ${SRCS:.c=.o}
+OBJS_B	= ${BONUS:.c=.o}
 NAME	= libft.a
-CC		= cc
 RM		= rm -f
-FLAGS	= -Wall -Wextra -Werror
-%.o:	%.c
-			${CC} ${FLAGS} -c $< -o $@
-${NAME}:	${OBJS}
-			ar rc ${NAME} ${OBJS}
+FLAGS	= -Wall -Wextra -Werror -c  
+${NAME}:
+		gcc ${FLAGS}${SRCS}
+		ar rc ${NAME} ${OBJS}
+		ranlib ${NAME}
+bonus:		${OBJS_B}
+			ar rc ${NAME} ${OBJS_B}
 			ranlib ${NAME}
 all:		${NAME}
 clean:
-			${RM} ${OBJS}
+			${RM} ${OBJS} ${OBJS_B}
 fclean:		clean
 			${RM} ${NAME}
 re:			fclean all
-.PHONY: all clean fclean re
